@@ -24,6 +24,22 @@ scikit_learn==1.6.0
 tqdm==4.67.1
 ```
 
+### Installing Dependencies
+
+To ensure all dependencies are installed:
+
+1. **Create a Virtual Environment (Optional but Recommended)**:
+   ```bash
+   python -m venv venv
+   source venv/Scripts/activate   # On Linux: venv\bin\activate
+   ```
+
+2. **Install Dependencies**:
+   Use the `requirements.txt` file to install all required libraries:
+   ```bash
+   pip install -r requirements.txt
+   
+
 ## Python Version
 This project was made using **Python 3.11**. Ensure you have the correct version installed by running:
 
