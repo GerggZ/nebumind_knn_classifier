@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris as load_iris_dataset
 from sklearn.model_selection import train_test_split, KFold
 
-from knnclassifier import kNNClassifier
+from knn_classifier import kNN_Classifier
 
 # Constant Variables
 RANDOM_STATE: int | None = 42  # Random number used with the sklearn library to ensure reproducible dataset splits
@@ -38,7 +38,7 @@ def train_and_evaluate_knn_classifier(
         tuple[float, float]: Train accuracy and test accuracy.
     """
     # Initialize/train the k-NN Classifier
-    knn_classifier = kNNClassifier(k=num_neighbors)
+    knn_classifier = kNN_Classifier(k=num_neighbors)
     knn_classifier.fit(features=train_features, labels=train_labels)
 
     # Calculate predictions for training and testing data

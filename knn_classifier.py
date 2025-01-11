@@ -3,7 +3,7 @@ import numpy as np
 from numpy.typing import ArrayLike
 
 
-class kNNClassifier:
+class kNN_Classifier:
     def __init__(self, k: int) -> None:
         """
         Initialize the kNN Classifier
