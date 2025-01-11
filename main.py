@@ -5,10 +5,6 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris as load_iris_dataset
 from sklearn.model_selection import train_test_split, KFold
 
-# PyCharm Specific
-import matplotlib
-matplotlib.use('TkAgg')
-
 from knn_classifier import kNN_Clasifier
 
 # Constant Variables
@@ -101,7 +97,7 @@ def cross_validate_knn_with_folds() -> pd.DataFrame:
 
     # Analyze kNN efficacy over a range of kFolds
     results = []
-    for num_folds in tqdm(range(2, MAX_NUM_FOLDS + 1), total=MAX_NUM_FOLDS - 1, desc="Testing various kFolds"):
+    for num_folds in tqdm(range(2, MAX_NUM_FOLDS + 1), total=MAX_NUM_FOLDS - 1, desc="Testing various kFolds and Number of Neighbors amounts"):
         kf = KFold(n_splits=num_folds, shuffle=True, random_state=RANDOM_STATE)
 
         for training_indices, testing_indices in kf.split(features):

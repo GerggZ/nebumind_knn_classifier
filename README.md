@@ -17,7 +17,7 @@ The project is divided into two main components:
 The project requires the following dependencies:
 
 ```plaintext
-matplotlib==3.10.0
+matplotlib==3.9.4
 numpy==2.2.1
 pandas==2.2.3
 scikit_learn==1.6.0
