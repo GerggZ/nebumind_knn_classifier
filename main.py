@@ -5,18 +5,18 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris as load_iris_dataset
 from sklearn.model_selection import train_test_split, KFold
 
-from knn_classifier import kNN_Clasifier
+from knnclassifier import kNNClassifier
 
 # Constant Variables
-RANDOM_STATE = 42  # Random number used with the sklearn library to ensure reproducible dataset splits
-MAX_NUM_NEIGHBORS = 75  # The maximum number of neighbors (`k`) considered to evaluate the k-NN classifier
-MAX_NUM_FOLDS = 10  # The maximum number of folds used for k-fold cross-validation
+RANDOM_STATE: int | None = 42  # Random number used with the sklearn library to ensure reproducible dataset splits
+MAX_NUM_NEIGHBORS: int = 75  # The maximum number of neighbors (`k`) considered to evaluate the k-NN classifier
+MAX_NUM_FOLDS: int = 10  # The maximum number of folds used for k-fold cross-validation
 
 # Plot Colors
-TRAIN_ACCURACY_COLOR = "#E08226"
-TEST_ACCURACY_COLOR = "#37A9AB"
-OPTIMAL_TEST_ACCURACY_COLOR = "#9467BD"
-OPTIMAL_K_COLOR = "#A0A0A0"
+TRAIN_ACCURACY_COLOR: str = "#E08226"  # Orange
+TEST_ACCURACY_COLOR: str = "#37A9AB"  # Teal
+OPTIMAL_TEST_ACCURACY_COLOR: str = "#9467BD"  # Purple
+OPTIMAL_K_COLOR: str = "#A0A0A0"  # Gray
 
 
 def train_and_evaluate_knn_classifier(
@@ -38,8 +38,8 @@ def train_and_evaluate_knn_classifier(
         tuple[float, float]: Train accuracy and test accuracy.
     """
     # Initialize/train the k-NN Classifier
-    knn_classifier = kNN_Clasifier(k=num_neighbors)
-    knn_classifier.fit(X_train=train_features, y_train=train_labels)
+    knn_classifier = kNNClassifier(k=num_neighbors)
+    knn_classifier.fit(features=train_features, labels=train_labels)
 
     # Calculate predictions for training and testing data
     train_predictions = knn_classifier.predict(X=train_features)
@@ -97,7 +97,7 @@ def cross_validate_knn_with_folds() -> pd.DataFrame:
 
     # Analyze kNN efficacy over a range of kFolds
     results = []
-    for num_folds in tqdm(range(2, MAX_NUM_FOLDS + 1), total=MAX_NUM_FOLDS - 1, desc="Testing various kFolds and Number of Neighbors amounts"):
+    for num_folds in tqdm(range(2, MAX_NUM_FOLDS + 1), total=MAX_NUM_FOLDS - 1, desc="Testing various kFold and Number of Neighbors amounts"):
         kf = KFold(n_splits=num_folds, shuffle=True, random_state=RANDOM_STATE)
 
         for training_indices, testing_indices in kf.split(features):
